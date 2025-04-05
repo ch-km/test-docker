@@ -1,0 +1,2 @@
+## application framework
+flask >= 3.0.3
