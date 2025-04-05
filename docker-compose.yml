@@ -1,0 +1,34 @@
+services:
+  # HTML
+  frontend-app:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    
+    # コンテナ名・ホスト名
+    container_name: frontend_app
+    hostname: frontend_app
+    
+    # デフォルトのポートを指定
+    ports:
+      - "8080:80"
+
+  # Flask
+  backend-app:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+
+    # コンテナ名・ホスト名
+    container_name: backend_app
+    hostname: backend_app
+
+  # python
+  dev-container:
+    build:
+      context: .
+      dockerfile: ./dev/Dockerfile
+
+    # コンテナ名・ホスト名
+    container_name: dev_container
+    hostname: dev_container
