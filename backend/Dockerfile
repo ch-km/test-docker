@@ -14,5 +14,7 @@ WORKDIR /app
 
 # requirements.txtをコンテナ内にCOPYする
 COPY ./app/requirements.txt .
-
 RUN pip install -r requirements.txt
+
+# コンテナが終了しないようにする
+CMD ["sleep", "infinity"]
