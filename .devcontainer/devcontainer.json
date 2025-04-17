@@ -1,0 +1,32 @@
+{
+    // VSCode上の名前
+    "name": "Test Devcontainer",
+    // この.jsonから見た時のyml場所
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    // 開発環境に使うつもりのサービス名
+    "service": "dev-container",
+    // コンテナ内のWKD
+    "workspaceFolder": "/src",
+    // ユーザーの指定
+    "remoteUser": "vscode",
+    // 開発環境コンテナを使う際に使用できるツールを指定
+    "features": {
+        "docker-from-docker": {
+            "version": "latest"
+        }
+    },
+    // 開発コンテナ内で使用するIDE(VSCode)の設定と拡張機能の指定
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "extensions.verifySignature": false,
+                "cSpell.ignoreWords": [
+                ]
+            },
+            "extensions": [
+            ]
+        }
+    }
+}

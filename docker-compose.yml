@@ -32,3 +32,10 @@ services:
     # コンテナ名・ホスト名
     container_name: dev_container
     hostname: dev_container
+
+    # --- ↓↓↓ ここから追加 ↓↓↓ ---
+    volumes:
+      # この ./ は docker-compose.yml があるディレクトリを指します。
+      # : の右側はコンテナ内のマウント先パスで、workspaceFolder と合わせます。
+      - ./:/src
+    # --- ↑↑↑ ここまで追加 ↑↑↑ ---
