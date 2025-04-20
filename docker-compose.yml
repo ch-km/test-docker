@@ -35,7 +35,10 @@ services:
 
     # --- ↓↓↓ ここから追加 ↓↓↓ ---
     volumes:
+      # 注意: パスは実際のフォルダ構造に合わせてください
       # この ./ は docker-compose.yml があるディレクトリを指します。
       # : の右側はコンテナ内のマウント先パスで、workspaceFolder と合わせます。
-      - ./:/src
+      - ../.ssh:/home/vscode/.ssh # ホストのSSHキーをコンテナのvscodeユーザーの.sshへ
+      - ../.gitconfig:/home/vscode/.gitconfig # ホストのGit設定をコンテナのvscodeユーザーのホームへ
+      - ./:/src # docker-compose.ymlがあるディレクトリ全体をコンテナの/srcへ
     # --- ↑↑↑ ここまで追加 ↑↑↑ ---
