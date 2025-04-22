@@ -13,6 +13,11 @@ services:
     ports:
       - "8080:80"
 
+    # --- ↓↓↓ ここから追加 ↓↓↓ ---
+    depends_on:
+      - backend-app
+    # --- ↑↑↑ ここまで追加 ↑↑↑ ---
+
   # Flask
   backend-app:
     build:
@@ -41,4 +46,7 @@ services:
       - ../.ssh:/home/vscode/.ssh # ホストのSSHキーをコンテナのvscodeユーザーの.sshへ
       - ../.gitconfig:/home/vscode/.gitconfig # ホストのGit設定をコンテナのvscodeユーザーのホームへ
       - ./:/src # docker-compose.ymlがあるディレクトリ全体をコンテナの/srcへ
+    
+    depends_on:
+      - backend-app
     # --- ↑↑↑ ここまで追加 ↑↑↑ ---
